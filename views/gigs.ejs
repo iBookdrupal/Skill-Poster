@@ -1,0 +1,20 @@
+<section id="gigs" class="container">
+  <h1>All Gigs <span class="totalGig"> Total Gigs: <%- codegig.length %> </span></h1>
+
+  <% if (codegig !==0) { %> <% codegig.forEach(gig => { %>
+
+  <div class="gig">
+    <h3><%- gig.title %></h3>
+    <p><%- gig.description %></p>
+    <ul>
+      <li>Budget: <%- gig.budget %></li>
+      <li><a href="mailto:<%- gig.contact_mail %> " class="btn btn-reverse">Apply Now</a></li>
+    </ul>
+    <div class="tech">
+      <small>Technologies Needed: <span><%- gig.technologies %> </span></small>
+    </div>
+  </div>
+  <% }) %> <% } else { %>
+  <p>No data Available</p>
+  <% } %>
+</section>
