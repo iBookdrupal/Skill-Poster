@@ -29,17 +29,19 @@ router.post('/add', (req, res) => {
   let errors = [];
 
   if (!title) {
-    errors.push({text: 'Please add a title '});
+    errors.push({msg: 'Please fill in title '});
   }
 
   if (!technologies) {
-    errors.push({text: 'Please add some technologies '});
+    errors.push({msg: 'Please fill in some technologies! '});
   }
+
   if (!description) {
-    errors.push({text: 'Please add description '});
+    errors.push({msg: 'Please describe your work! '});
   }
+
   if (!contact_mail) {
-    errors.push({text: 'Please add a contact mail '});
+    errors.push({msg: 'Please add your email, its very important!'});
   }
 
   if (errors.length > 0) {

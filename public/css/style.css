@@ -54,7 +54,7 @@ header {
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 6rem;
+  padding: 0.5rem 6rem;
 }
 
 header nav ul {
@@ -189,8 +189,8 @@ input[type='search'] {
   margin: auto;
   background: var(--bg-color);
   color: #fff;
-  padding: 1rem 3rem 3rem;
-  margin-top: 3rem;
+  padding: 0.5rem 3rem 3rem;
+  margin-top: 0rem;
   border-bottom: 4px solid var(--primary-color);
   box-shadow: var(--box-shadow);
 }
@@ -304,4 +304,8 @@ label {
 
 .totalGig {
   float: right;
+}
+
+.errorColor {
+  color: rgb(238, 185, 10);
 }

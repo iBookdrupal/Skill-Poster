@@ -2,19 +2,17 @@
   <div class="form-wrap">
     <h1>Add A Gig</h1>
     <p>Your contact email will be shared with registered users to apply to your gig</p>
-
+    <%- include ('./partials/messages') %>
     <form action="/gigs/add" method="POST" autocomplete="off">
       <div class="input-group">
         <label for="title">Gig Title</label>
         <input
           type="text"
           name="title"
-          id="title"
           class="input-box"
           placeholder="eg. Small Wordpress website, React developer"
           maxlength="100"
-          value="<%-// title.title %> "
-          required="true"
+          value="<%= typeof title != 'undefined' ? title : '' %>"
         />
       </div>
       <div class="input-group">
@@ -22,12 +20,10 @@
         <input
           type="text"
           name="technologies"
-          id="technologies"
           class="input-box"
           placeholder="eg. javascript, react, PHP"
           maxlength="100"
-          value="<%-// technologies %> "
-          required
+          value="<%= typeof technologies != 'undefined' ? technologies : '' %>"
         />
       </div>
       <div class="input-group">
@@ -35,23 +31,15 @@
         <input
           type="number"
           name="budget"
-          id="budget"
           class="input-box"
           placeholder="eg. 500, 5000, 10000"
-          value="<%-// budget %> "
+          value="<%= typeof budget != 'undefined' ? budget : '' %>"
         />
       </div>
       <div class="input-group">
         <label for="description">Gig Description</label>
-        <textarea
-          name="description"
-          id="description"
-          class="input-box"
-          placeholder="Describe the details of the gig"
-          rows="10"
-          required
-        >
-<%-// description %> </textarea
+        <textarea name="description" class="input-box" placeholder="Describe the details of the gig" rows="8">
+<%= typeof description != 'undefined' ? description : '' %></textarea
         >
       </div>
       <div class="input-group">
@@ -59,10 +47,9 @@
         <input
           type="email"
           name="contact_mail"
-          id="contactemail"
           class="input-box"
           placeholder="Enter an email"
-          value="<%-// contact_email  %> "
+          value="<%= typeof contact_mail != 'undefined' ? contact_mail : '' %>"
         />
       </div>
       <input type="submit" value="Add Gig" class="btn btn-reverse" />
