@@ -1,0 +1,29 @@
+<section id="add" class="container">
+  <div class="form-wrap">
+    <h1>
+      Assign User Roles
+    </h1>
+
+    <%-// include ('../partials/messages') %>
+    <form action="/gigs/" method="POST" autocomplete="on">
+      <!--* Gender here to Select -->
+      <div class="custom-select">
+        <label for="registered members"> Registered Members </label>
+        <select>
+          <option> -- List of Registered Members to assign User Roles -- </option>
+          <option>Male </option>
+          <option>Female </option>
+        </select>
+      </div>
+
+      <div class="custom-select">
+        <label for="user roles"> User Roles </label>
+        <select>
+          <option>Admin </option>
+          <option>User </option>
+        </select>
+      </div>
+      <input type="submit" value="Assign Roles" class="btn btn-reverse" />
+    </form>
+  </div>
+</section>

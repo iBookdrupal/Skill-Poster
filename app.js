@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
 
 //* Database
@@ -23,10 +22,11 @@ app.use(expressLayouts);
 app.use(express.static('public'));
 
 //* body - parser
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: false}));
 
 //* Gig routes
 app.use('/gigs', require('./routes/gigs'));
+app.use('/users', require('./routes/users'));
 
 //* Index route
 app.get('/', (req, res) => {

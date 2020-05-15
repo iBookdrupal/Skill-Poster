@@ -1,0 +1,35 @@
+<section id="add" class="container">
+  <div class="form-wrap">
+    <h1>
+        Login Here
+    </h1>
+
+    <%-// include ('../partials/messages') %>
+    <form action="/gigs/" method="POST" autocomplete="on">
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          class="input-box"
+          placeholder="email as Username"
+          value="<%= //typeof contact_mail != 'undefined' ? contact_mail : '' %>"
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password </label>
+        <input
+          type="password"
+          name="password"
+          class="input-box"
+          placeholder="Password "
+          value="<%= //typeof contact_mail != 'undefined' ? contact_mail : '' %>"
+        />
+      </div>
+
+      <input type="submit" value="Login" class="btn btn-reverse" />
+      <p>Don't have an existing account? <a href="/users/register"> Register Here</a></p>
+    </form>
+  </div>
+</section>

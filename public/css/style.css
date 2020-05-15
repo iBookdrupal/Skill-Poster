@@ -309,3 +309,36 @@ label {
 .errorColor {
   color: rgb(238, 185, 10);
 }
+
+.text {
+  color: aliceblue;
+}
+
+.custom-select select {
+  display: block;
+  padding: 10px 70px 10px 13px !important;
+  width: 100%;
+  height: auto !important;
+  border: 1px solid #e3e3e3;
+  border-radius: 3px;
+  background-color: rgb(255, 255, 255);
+  color: #444444;
+  font-size: 15px;
+  line-height: 16px !important;
+  appearance: none;
+  /* this is must */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin-bottom: 5px;
+}
+/* body select.select_box option */
+.custom-select select option {
+  padding: 0 4px;
+}
+/* for IE and Edge */
+.custom-select select::-ms-expand {
+  display: none;
+}
+.custom-select select:disabled::-ms-expand {
+  background: #f60;
+}

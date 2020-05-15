@@ -9,7 +9,7 @@ const Op = Sequelize.Op;
 router.get('/', (req, res) =>
   Gig.findAll()
     .then((codegig) => {
-      res.render('gigs', {
+      res.render('./codegigModule/gigs', {
         codegig,
       });
     })
@@ -18,7 +18,7 @@ router.get('/', (req, res) =>
 
 //* Display add gig form
 router.get('/add', (req, res) => {
-  res.render('add');
+  res.render('./codegigModule/add');
 });
 
 //* Add a gig
@@ -45,7 +45,7 @@ router.post('/add', (req, res) => {
   }
 
   if (errors.length > 0) {
-    res.render('add', {
+    res.render('./codegigModule/add', {
       errors,
       title,
       technologies,
@@ -74,7 +74,7 @@ router.post('/add', (req, res) => {
           description,
           contact_mail,
         });
-        return res.redirect('/gigs');
+        return res.redirect('./codegigModule/gigs');
       })
       .catch((err) => console.log(err));
   }
@@ -88,7 +88,7 @@ router.get('/search', (req, res) => {
 
   Gig.findAll({where: {technologies: {[Op.like]: '%' + term + '%'}}})
     .then((codegig) =>
-      res.render('gigs', {
+      res.render('./codegigModule/gigs', {
         codegig,
       })
     )

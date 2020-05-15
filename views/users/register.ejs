@@ -1,0 +1,106 @@
+<section id="add" class="container">
+  <div class="form-wrap">
+    <h1>Register an Account</h1>
+
+    <%-// include ('../partials/messages') %>
+    <form action="/gigs/" method="POST" autocomplete="on">
+      <div class="input-group">
+        <label for="First Name">First Name </label>
+        <input
+          type="text"
+          name="firstName"
+          class="input-box"
+          placeholder="First Name"
+          maxlength="100"
+          value="<%=// typeof title != 'undefined' ? title : '' %>"
+        />
+      </div>
+      <div class="input-group">
+        <label for="Last Name">Last Name </label>
+        <input
+          type="text"
+          name="lastName"
+          class="input-box"
+          placeholder="Last Name "
+          maxlength="100"
+          value="<%=// typeof technologies != 'undefined' ? technologies : '' %>"
+        />
+      </div>
+      <!--* Gender here to Select -->
+      <div class="custom-select">
+        <label for="Gender"> Gender </label>
+        <select>
+          <option> -- Select -- </option>
+          <option>Male </option>
+          <option>Female </option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="City">City</label>
+        <input
+          type="city"
+          name="city"
+          class="input-box"
+          placeholder="City"
+          value="<%= //typeof contact_mail != 'undefined' ? contact_mail : '' %>"
+        />
+      </div>
+      <div class="input-group">
+        <label for="State">State</label>
+        <input
+          type="state"
+          name="state"
+          class="input-box"
+          placeholder="State"
+          value="<%= //typeof contact_mail != 'undefined' ? contact_mail : '' %>"
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="phone">Phone No</label>
+        <input
+          type="phone"
+          name="phone"
+          class="input-box"
+          placeholder="Phone Number"
+          value="<%= //typeof contact_mail != 'undefined' ? contact_mail : '' %>"
+        />
+      </div>
+      <div class="input-group">
+        <label for="email">Phone No</label>
+        <input
+          type="email"
+          name="email"
+          class="input-box"
+          placeholder="email"
+          value="<%= //typeof contact_mail != 'undefined' ? contact_mail : '' %>"
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password </label>
+        <input
+          type="password"
+          name="password"
+          class="input-box"
+          placeholder="Password "
+          value="<%= //typeof contact_mail != 'undefined' ? contact_mail : '' %>"
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="password">Confirm Password </label>
+        <input
+          type="password"
+          name="confirmPassword"
+          class="input-box"
+          placeholder="Confirm Password "
+          value="<%= //typeof contact_mail != 'undefined' ? contact_mail : '' %>"
+        />
+      </div>
+
+      <input type="submit" value="Register" class="btn btn-reverse" />
+    </form>
+  </div>
+</section>
