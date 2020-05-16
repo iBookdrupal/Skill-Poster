@@ -14,9 +14,6 @@ const Gig = db.define('codegig', {
   description: {
     type: Sequelize.STRING,
   },
-  contact_mail: {
-    type: Sequelize.STRING,
-  },
 });
 
 module.exports = Gig;

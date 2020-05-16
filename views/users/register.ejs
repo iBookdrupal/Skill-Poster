@@ -2,8 +2,8 @@
   <div class="form-wrap">
     <h1>Register an Account</h1>
 
-    <%-// include ('../partials/messages') %>
-    <form action="/gigs/" method="POST" autocomplete="on">
+    <%- include ('../partials/messages') %>
+    <form action="/users/register" method="POST" autocomplete="on">
       <div class="input-group">
         <label for="First Name">First Name </label>
         <input
@@ -12,7 +12,7 @@
           class="input-box"
           placeholder="First Name"
           maxlength="100"
-          value="<%=// typeof title != 'undefined' ? title : '' %>"
+          value="<%= typeof firstName != 'undefined' ? firstName : '' %>"
         />
       </div>
       <div class="input-group">
@@ -23,17 +23,8 @@
           class="input-box"
           placeholder="Last Name "
           maxlength="100"
-          value="<%=// typeof technologies != 'undefined' ? technologies : '' %>"
+          value="<%= typeof lastName != 'undefined' ? lastName: '' %>"
         />
-      </div>
-      <!--* Gender here to Select -->
-      <div class="custom-select">
-        <label for="Gender"> Gender </label>
-        <select>
-          <option> -- Select -- </option>
-          <option>Male </option>
-          <option>Female </option>
-        </select>
       </div>
 
       <div class="input-group">
@@ -43,18 +34,16 @@
           name="city"
           class="input-box"
           placeholder="City"
-          value="<%= //typeof contact_mail != 'undefined' ? contact_mail : '' %>"
+          value="<%= typeof city != 'undefined' ? city : '' %>"
         />
       </div>
-      <div class="input-group">
-        <label for="State">State</label>
-        <input
-          type="state"
-          name="state"
-          class="input-box"
-          placeholder="State"
-          value="<%= //typeof contact_mail != 'undefined' ? contact_mail : '' %>"
-        />
+
+      <div class="custom-select">
+        <label for="Gender"> Gender </label>
+        <select id="mySelect">
+          <option name="gender" value="1">Male </option>
+          <option name="gender" value="2">Female </option>
+        </select>
       </div>
 
       <div class="input-group">
@@ -64,17 +53,31 @@
           name="phone"
           class="input-box"
           placeholder="Phone Number"
-          value="<%= //typeof contact_mail != 'undefined' ? contact_mail : '' %>"
+          maxlength="13"
+          value="<%= typeof phone != 'undefined' ? phone : '' %>"
         />
       </div>
       <div class="input-group">
-        <label for="email">Phone No</label>
+        <label for="State">State</label>
+        <input
+          type="state"
+          name="state"
+          class="input-box"
+          placeholder="State"
+          value="<%= typeof state != 'undefined' ? state : '' %>"
+        />
+      </div>
+
+      <!--* Gender here to Select -->
+
+      <div class="input-group">
+        <label for="email">E-mail</label>
         <input
           type="email"
           name="email"
           class="input-box"
           placeholder="email"
-          value="<%= //typeof contact_mail != 'undefined' ? contact_mail : '' %>"
+          value="<%= typeof email != 'undefined' ? email : '' %>"
         />
       </div>
 
@@ -85,10 +88,10 @@
           name="password"
           class="input-box"
           placeholder="Password "
-          value="<%= //typeof contact_mail != 'undefined' ? contact_mail : '' %>"
+          value="<%= typeof password != 'undefined' ? password : '' %>"
         />
       </div>
-
+      <!--
       <div class="input-group">
         <label for="password">Confirm Password </label>
         <input
@@ -99,8 +102,9 @@
           value="<%= //typeof contact_mail != 'undefined' ? contact_mail : '' %>"
         />
       </div>
-
+    -->
       <input type="submit" value="Register" class="btn btn-reverse" />
+      <p>Already have existing account? <a href="/users/Login"> Login Here</a></p>
     </form>
   </div>
 </section>

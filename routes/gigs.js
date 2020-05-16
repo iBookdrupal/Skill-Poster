@@ -24,7 +24,7 @@ router.get('/add', (req, res) => {
 //* Add a gig
 
 router.post('/add', (req, res) => {
-  let {title, technologies, budget, description, contact_mail} = req.body;
+  let {title, technologies, budget, description} = req.body;
   //Validate Fields
   let errors = [];
 
@@ -40,10 +40,6 @@ router.post('/add', (req, res) => {
     errors.push({msg: 'Please describe your work! '});
   }
 
-  if (!contact_mail) {
-    errors.push({msg: 'Please add your email, its very important!'});
-  }
-
   if (errors.length > 0) {
     res.render('./codegigModule/add', {
       errors,
@@ -51,7 +47,6 @@ router.post('/add', (req, res) => {
       technologies,
       budget,
       description,
-      contact_mail,
     });
   } else {
     //* insert into table
@@ -72,9 +67,8 @@ router.post('/add', (req, res) => {
           technologies,
           budget,
           description,
-          contact_mail,
         });
-        return res.redirect('./codegigModule/gigs');
+        return res.redirect('/gigs');
       })
       .catch((err) => console.log(err));
   }

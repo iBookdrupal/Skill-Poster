@@ -10,7 +10,6 @@
       <div class="custom-select">
         <label for="registered members"> Registered Members </label>
         <select>
-          <option> -- List of Registered Members to assign User Roles -- </option>
           <option>Male </option>
           <option>Female </option>
         </select>
@@ -19,8 +18,10 @@
       <div class="custom-select">
         <label for="user roles"> User Roles </label>
         <select>
-          <option>Admin </option>
-          <option>User </option>
+          <% for(role of userRole) { %>
+          <option> <%- role.userRoleName %> </option>
+
+          <% } %>
         </select>
       </div>
       <input type="submit" value="Assign Roles" class="btn btn-reverse" />
