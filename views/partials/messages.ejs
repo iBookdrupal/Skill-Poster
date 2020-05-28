@@ -4,3 +4,21 @@
 </div>
 
 <% }); %> <% } %>
+
+<!-- Success Messages -->
+<% if (success_msg != '') { %>
+<div class="error">
+  <p class="successColor"><%= success_msg%></p>
+</div>
+<% } %> <% if (error_msg != '') { %>
+<div class="error">
+  <p class="errorColor"><%= error_msg %></p>
+</div>
+<% } %>
+
+<!--! Error Flash Message -->
+<% if (error != '') { %>
+<div class="error">
+  <p class="errorColor"><%= error %></p>
+</div>
+<% } %>

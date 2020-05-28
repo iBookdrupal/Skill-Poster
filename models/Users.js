@@ -39,7 +39,7 @@ const registerSchema = db.define('users', {
     type: Sequelize.STRING,
   },
   password: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
   },
 
   userRoleId: {type: Sequelize.STRING},

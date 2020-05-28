@@ -6,8 +6,7 @@ const Users = require('../models/Users');
 const {v1: uuidv1} = require('uuid');
 
 //* Passport
-
-//* Router for User Model
+const passport = require('passport');
 
 //* Get userLogin
 router.get('/login', (req, res) => {
@@ -20,19 +19,10 @@ router.get('/register', (req, res) => {
 
   res.render('./users/register');
 });
-/*
-let getGender = function () {
-  var e = req.body.gender.getElementById('mySelect');
-  var getGender = e.options[e.selectedIndex].text;
-
-  return getGender;
-};
-gender = getGender();
-*/
 
 //* Post User
 router.post('/register', (req, res) => {
-  let {firstName, lastName, gender, city, phone, state, email, password} = req.body;
+  let {firstName, lastName, gender, city, phone, state, email, password, password2} = req.body;
 
   let id = uuidv1().slice(0, 18);
 
@@ -40,6 +30,16 @@ router.post('/register', (req, res) => {
 
   if (!firstName || !lastName || !phone || !email || !password) {
     errors.push({msg: 'Please fill in the fields '});
+  }
+
+  //* Check passwords match
+  if (password !== password2) {
+    errors.push({msg: 'Passwords do not match'});
+  }
+
+  //* Check Password Length
+  if (password.length < 6) {
+    errors.push({msg: 'Password should be at least 6 characters'});
   }
 
   if (errors.length > 0) {
@@ -55,40 +55,11 @@ router.post('/register', (req, res) => {
       password,
     });
   } else {
-    /*Users.registerSchema
-      .sync({force: false})
-      .then(() => {
-        bcrypt.genSalt(10, function (err, salt) {
-          //var data = '123kkk333';
-          bcrypt.hash(req.body.password, salt, function (err, hash) {
-            // Store hash in your password DB.
-            req.body.password = hash;
-          });
-        });
-        Users.registerSchema.create({
-          id,
-          firstName,
-          lastName,
-          gender,
-          city,
-          phone,
-          state,
-          email,
-          password,
-          userRoleId: '1',
-        });
-
-        return res.redirect('./login');
-      })
-      .catch((err) => console.log(err));
-      */
-
     bcrypt.genSalt(10, function (err, salt) {
       //var data = '123kkk333';
       bcrypt.hash(password, salt, function (err, hash) {
         // Store hash in your password DB.
         password = hash;
-        //Users.registerSchema.create({password});
         Users.registerSchema
           .create({
             id,
@@ -102,11 +73,30 @@ router.post('/register', (req, res) => {
             password,
             userRoleId: '1',
           })
-          .then((user) => res.redirect('./login'))
+          .then((users) => {
+            req.flash('success_msg', 'You registered successfully, you can now login');
+            res.redirect('./login');
+          })
           .catch((err) => console.log(err));
       });
     });
   }
+});
+
+//* Login Authentication
+router.post('/login', (req, res, next) => {
+  passport.authenticate('local', {
+    successRedirect: '/dashboard',
+    failureRedirect: '/users/login',
+    failureFlash: true,
+  })(req, res, next);
+});
+
+//? Logout Handle
+router.get('/logout', (req, res) => {
+  req.logOut();
+  req.flash('success_msg', 'You are logged out');
+  res.redirect('/users/login');
 });
 
 //* Assign User Role

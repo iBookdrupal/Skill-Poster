@@ -310,6 +310,10 @@ label {
   color: rgb(238, 185, 10);
 }
 
+.successColor {
+  color: rgb(11, 236, 105);
+}
+
 .text {
   color: aliceblue;
 }
