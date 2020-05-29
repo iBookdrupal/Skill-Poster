@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {ensureAuthenticated} = require('../config/auth');
+const Users = require('../models/Users');
 
 //* Index route
 router.get('/', (req, res) => {
@@ -9,8 +10,7 @@ router.get('/', (req, res) => {
 
 //* Dashboard
 router.get('/dashboard', ensureAuthenticated, (req, res) => {
-  res.render('dashboard', {
-    name: req.user.firstName,
-  });
+  res.render('dashboard', {email: req.user.email, name: `${req.user.firstName} ${req.user.lastName}`});
 });
+
 module.exports = router;

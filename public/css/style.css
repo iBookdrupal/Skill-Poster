@@ -346,3 +346,8 @@ label {
 .custom-select select:disabled::-ms-expand {
   background: #f60;
 }
+
+.login {
+  width: 45%;
+  margin: auto;
+}

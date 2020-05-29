@@ -12,10 +12,10 @@ module.exports = function (passport) {
       (email, password, done) => {
         //* Match User
         Users.registerSchema
-          .findOne({email: email})
+          .findOne({where: {email: email}})
           .then((user) => {
-            if (user == null) {
-              return done(null, false, {message: 'That email is not registered '});
+            if (!user) {
+              return done(null, false, {message: 'Invalid username / password'});
             }
 
             bcrypt.compare(password, user.password, function (err, isMatch) {
@@ -23,7 +23,7 @@ module.exports = function (passport) {
               if (isMatch) {
                 return done(null, user);
               } else {
-                return done(null, false, {message: 'Password Incorrect'});
+                return done(null, false, {message: 'Invalid username / password'});
               }
             });
           })
@@ -31,11 +31,14 @@ module.exports = function (passport) {
       }
     )
   );
-  passport.serializeUser(function (user, done) {
+  passport.serializeUser((user, done) => {
     done(null, user.id);
   });
 
-  passport.deserializeUser(function (user, done) {
-    done(null, {id: user.id, email: user.email, role: user.role});
+  passport.deserializeUser((id, done) => {
+    console.log(id);
+    Users.registerSchema.findOne({where: {id: id}}).then((user) => {
+      done(null, user);
+    });
   });
 };
