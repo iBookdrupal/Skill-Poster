@@ -11,6 +11,7 @@ router.get('/', (req, res) =>
     .then((codegig) => {
       res.render('./codegigModule/gigs', {
         codegig,
+        name: req.user.firstName,
       });
     })
     .catch((err) => console.log(err))
@@ -18,7 +19,9 @@ router.get('/', (req, res) =>
 
 //* Display add gig form
 router.get('/add', (req, res) => {
-  res.render('./codegigModule/add');
+  res.render('./codegigModule/add', {
+    name: req.user.firstName,
+  });
 });
 
 //* Add a gig
@@ -84,6 +87,7 @@ router.get('/search', (req, res) => {
     .then((codegig) =>
       res.render('./codegigModule/gigs', {
         codegig,
+        name: req.user.firstName,
       })
     )
     .catch((err) => console.log(err));

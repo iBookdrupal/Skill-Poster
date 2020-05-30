@@ -351,3 +351,23 @@ label {
   width: 45%;
   margin: auto;
 }
+
+.footer {
+  background-color: black;
+  font-size: 14px;
+  color: aliceblue;
+  margin: auto;
+  padding: 10px 15px;
+  text-align: center;
+}
+
+.dashboard-inner {
+  min-height: 400px;
+  margin: auto;
+  text-align: center;
+}
+
+.dashboard-inner button {
+  width: 20%;
+  font-size: 16px;
+}

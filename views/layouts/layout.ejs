@@ -21,24 +21,18 @@
           <li>
             <a href="/">Home</a>
           </li>
-          <!--
-          <li>
-            <a href="/gigs">All Gigs</a>
-          </li>
-          <li>
-            <a href="/gigs/add">Add Gig</a>
-          </li>
-
-          <li>
-            <a href="/users/assignUserRole"> Assign User Roles</a>
-          </li>
-
-          -->
+          <%- include ('../partials/loginLogOut') %>
         </ul>
       </nav>
     </header>
 
     <div class="container"><%- body %></div>
+
+    <footer class="footer">
+      &copy TechAfricana
+      <p>Address: plot A246 Block B, Zone 5 Wuse, Abuja - Nigeria</p>
+    </footer>
+
     <script src="/js/all.js"></script>
   </body>
 </html>

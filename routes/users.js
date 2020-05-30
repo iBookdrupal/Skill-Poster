@@ -105,6 +105,7 @@ router.get('/assignUserRole', (req, res) => {
     .then((userRole) => {
       res.render('./users/assignUserRole', {
         userRole,
+        name: req.user.firstName,
       });
     })
     .catch((err) => console.log(err));

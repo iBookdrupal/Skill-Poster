@@ -21,12 +21,19 @@
           <li>
             <a href="/">Home</a>
           </li>
+
+          <% if (loggedIn) { %> <%-// include ('../partials/loginLogOut') %>
+          <li>
+            <a href="/dashboard"> <i class="fa fa-list-alt"></i> My Dashboard </a>
+          </li>
+          <% } else {%>
           <li>
             <a href="/users/register"> Register </a>
           </li>
           <li>
             <a href="/users/login">Login</a>
           </li>
+          <% } %>
         </ul>
       </nav>
     </header>

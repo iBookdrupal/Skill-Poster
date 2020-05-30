@@ -1,0 +1,11 @@
+<% if (loggedIn) { %>
+
+<li>
+  <a href="/dashboard"> <i class="fa fa-user-circle"></i> <%- `Welcome ${name}` %> </a>
+</li>
+
+<li>
+  <a href="/users/logout"> <i class="fa fa-sign-out-alt"></i> Logout </a>
+</li>
+
+<% } %>

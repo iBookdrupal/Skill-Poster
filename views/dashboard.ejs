@@ -1,9 +1,20 @@
-<h1 class="mt-4">Dashboard</h1>
-
+<h1 class="mt-4"><i class="fa fa-database"></i> Dashboard</h1>
+<!--
 <p>
-  <%- `Welcome ${name}` %>
-  <a style="float: right;" href="/users/logout" class="btn btn-reverse"> Logout</a>
+  <%-// `Name:<b> ${name}</b>`  %>
 </p>
-<p><%- ` ${email}` %></p>
+<p><%- //` ${email}` %></p>
+-->
 
+<div class="dashboard-inner">
+  <% if (user.userRoleId ===2) { %>
+  <button class="btn btn-reverse"><a href="/gigs">All Gigs</a></button>
+  <button class="btn btn-reverse"><a href="/gigs/add">Add Gig</a></button>
+  <button class="btn btn-reverse"><a href="/users/assignUserRole"> Assign User Roles</a></button>
+  <button class="btn btn-reverse"><a href="#"> All Users</a></button>
+  <% } else{ %>
 
+  <button class="btn btn-reverse"><a href="/gigs">All Gigs</a></button>
+  <button class="btn btn-reverse"><a href="/gigs/add">Add Gig</a></button>
+  <% } %>
+</div>
