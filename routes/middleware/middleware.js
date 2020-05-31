@@ -4,6 +4,7 @@ const passport = require('passport');
 const session = require('express-session');
 const flash = require('connect-flash');
 const expressLayouts = require('express-ejs-layouts');
+const Users = require('../../models/Users');
 
 //* Passport config
 require('../../config/passport')(passport);

@@ -1,0 +1,31 @@
+<section id="add" class="container">
+  <h2>
+    All Users
+    <a id="btn-allUsers" class="btn btn-reverse" href="/dashboard">
+      <i class="fa fa-chevron-circle-left"></i> My Dashboard
+    </a>
+  </h2>
+
+  <table class="user-table">
+    <tr>
+      <th>S/N</th>
+      <th>Name</th>
+      <th>City</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>State</th>
+      <th></th>
+    </tr>
+    <% for(user of allUsers) { %>
+    <tr>
+      <td><%- i++ %></td>
+      <td><%- user.firstName %></td>
+      <td><%- user.city %></td>
+      <td><%- user.phone %></td>
+      <td><%- user.email %></td>
+      <td><%- user.state %></td>
+      <td><i class="fa fa-server"></i> <a id="btn-user-delete" href="#">Delete</a></td>
+    </tr>
+    <% } %>
+  </table>
+</section>

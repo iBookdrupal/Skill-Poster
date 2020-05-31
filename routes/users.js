@@ -100,11 +100,28 @@ router.get('/logout', (req, res) => {
 });
 
 //* Assign User Role
-router.get('/assignUserRole', (req, res) => {
+router.get('/assignUserRole', (req, res, done) => {
   Users.UserRole.findAll()
     .then((userRole) => {
-      res.render('./users/assignUserRole', {
-        userRole,
+      Users.registerSchema.findAll().then((userList) => {
+        res.render('./users/assignUserRole', {
+          userRole,
+          userList,
+          name: req.user.firstName,
+        });
+      });
+    })
+    .catch((err) => console.log(err));
+});
+
+//* Assign User Role
+router.get('/allUsers', (req, res) => {
+  Users.registerSchema
+    .findAll()
+    .then((allUsers) => {
+      res.render('./users/allUsers', {
+        allUsers,
+        i: (i = 1),
         name: req.user.firstName,
       });
     })

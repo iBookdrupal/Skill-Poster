@@ -1,0 +1,9 @@
+#btn-allUsers {
+  float: right;
+  font-size: 14px;
+  background-color: black;
+}
+
+#btn-user-delete {
+  color: red;
+}

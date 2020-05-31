@@ -7,6 +7,7 @@
     <link rel="icon" type="Images/png" href="/img/v8.ico" />
     <link rel="stylesheet" href="/css/all.css" />
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/style2.css" />
 
     <title>CodeGig</title>
   </head>
@@ -29,10 +30,20 @@
     <div class="container"><%- body %></div>
 
     <footer class="footer">
-      &copy TechAfricana
+      &copy TechAfricana <span class="year"></span>
       <p>Address: plot A246 Block B, Zone 5 Wuse, Abuja - Nigeria</p>
+      <p class="time"></p>
     </footer>
 
     <script src="/js/all.js"></script>
+
+    <script>
+      let date = new Date();
+      // let dateOutput = document.querySelector('.time');
+      //dateOutput.innerHTML = date.toDateString();
+      let year = document.querySelector('.year');
+
+      year.innerHTML = `(${date.getFullYear()})`;
+    </script>
   </body>
 </html>
