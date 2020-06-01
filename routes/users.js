@@ -71,7 +71,7 @@ router.post('/register', (req, res) => {
             state,
             email,
             password,
-            userRoleId: '1',
+            userRoleId: 1,
           })
           .then((users) => {
             req.flash('success_msg', 'You registered successfully, you can now login');
@@ -99,7 +99,7 @@ router.get('/logout', (req, res) => {
   res.redirect('/users/login');
 });
 
-//* Assign User Role
+//* Get Assign User Role
 router.get('/assignUserRole', (req, res, done) => {
   Users.UserRole.findAll()
     .then((userRole) => {
@@ -108,8 +108,21 @@ router.get('/assignUserRole', (req, res, done) => {
           userRole,
           userList,
           name: req.user.firstName,
+          userId: req.user.id,
         });
       });
+    })
+    .catch((err) => console.log(err));
+});
+
+//* Post User Role
+router.post('/assignUserRole', (req, res) => {
+  let {id, userRoleId} = req.body;
+  Users.registerSchema
+    .update({userRoleId}, {where: {id: id}})
+    .then((user) => {
+      res.redirect('/dashboard');
+      req.flash('success_msg', 'Role successfully Assigned ');
     })
     .catch((err) => console.log(err));
 });

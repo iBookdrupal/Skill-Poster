@@ -1,32 +1,36 @@
 <section id="add" class="container">
-  <div class="form-wrap">
-    <h1>
-      Assign User Roles
-    </h1>
+  <h2>
+    Assign User Roles
+    <a id="btn-allUsers" class="btn btn-reverse" href="/dashboard">
+      <i class="fa fa-chevron-circle-left"></i> My Dashboard
+    </a>
+  </h2>
 
-    <%-// include ('../partials/messages') %>
-    <form action="/gigs/" method="POST" autocomplete="on">
+  <div class="form-wrap">
+    <%- include ('../partials/messages') %>
+    <form action="/users/assignUserRole" method="POST" autocomplete="on">
       <!--* Gender here to Select -->
       <div class="custom-select">
         <label for="registered members"> Registered Members </label>
-        <select>
-          <% for(user of userList) { %>
-          <option> <%- user.firstName %> </option>
-
+        <select name="id">
+          <% for(user of userList) { %> 
+          
+          <option value="<%- user.id %>"> <%- user.firstName %> </option>
           <% } %>
         </select>
       </div>
 
       <div class="custom-select">
         <label for="user roles"> User Roles </label>
-        <select>
+        <select name="userRoleId">
           <% for(role of userRole) { %>
-          <option> <%- role.userRoleName %> </option>
+          <option value="<%- role.id %>"> <%- role.userRoleName %> </option>
 
           <% } %>
         </select>
       </div>
-      <input type="submit" value="Assign Roles" class="btn btn-reverse" />
+
+      <input type="submit" value="Assign Role" class="btn btn-reverse" />
     </form>
   </div>
 </section>

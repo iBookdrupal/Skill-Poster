@@ -36,7 +36,6 @@ module.exports = function (passport) {
   });
 
   passport.deserializeUser((id, done) => {
-    console.log(id);
     Users.registerSchema.findOne({where: {id: id}}).then((user) => {
       done(null, user);
     });
