@@ -13,10 +13,12 @@
       <div class="custom-select">
         <label for="registered members"> Registered Members </label>
         <select name="id">
-          <% for(user of userList) { %> 
-          
-          <option value="<%- user.id %>"> <%- user.firstName %> </option>
-          <% } %>
+          <% for(user of userList) { %>
+          <!-- Do not show user that is logged in to change user Role-->
+          <% if (user.id !== userId) { %>
+          <option value="<%- user.id %>"> <%-`${user.firstName} ---- ${user.email}` %> </option>
+
+          <% } %> <% } %>
         </select>
       </div>
 

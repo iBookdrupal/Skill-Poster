@@ -1,5 +1,13 @@
 <section id="gigs" class="container">
-  <h1>All Gigs <span class="totalGig"> Total Gigs: <%- codegig.length %> </span></h1>
+  <h1>
+    All Gigs
+  </h1>
+  <p>
+    <a class="btn btn-reverse totalGig" href="/dashboard">
+      <i class="fa fa-chevron-circle-left"></i> My Dashboard
+    </a>
+    <span> Total Gigs: <%- codegig.length %> </span>
+  </p>
 
   <% if (codegig !==0) { %> <% codegig.forEach(gig => { %>
 

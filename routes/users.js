@@ -107,7 +107,7 @@ router.get('/assignUserRole', (req, res, done) => {
         res.render('./users/assignUserRole', {
           userRole,
           userList,
-          name: req.user.firstName,
+          name: `${req.user.firstName}  `,
           userId: req.user.id,
         });
       });
@@ -121,8 +121,8 @@ router.post('/assignUserRole', (req, res) => {
   Users.registerSchema
     .update({userRoleId}, {where: {id: id}})
     .then((user) => {
-      res.redirect('/dashboard');
-      req.flash('success_msg', 'Role successfully Assigned ');
+      req.flash('success_msg', 'User Role successfully Assigned ');
+      res.redirect('/users/assignUserRole');
     })
     .catch((err) => console.log(err));
 });
