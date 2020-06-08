@@ -3,7 +3,7 @@
 <li class="dropdown">
   <a class="dropbtn" href="/dashboard"> <i class="fa fa-user-circle"></i> <%- `Welcome ${name}` %> </a>
   <div class="dropdown-content">
-    <a href="#"><i class="fas fa-user-edit"></i> Edit Profile </a>
+    <a href="/users/userDetails/<%- user.id%> "> <i class="fas fa-user-circle"></i> View Profile </a>
     <a href="/users/logout"> <i class="fa fa-sign-out-alt"></i> Logout </a>
   </div>
 </li>

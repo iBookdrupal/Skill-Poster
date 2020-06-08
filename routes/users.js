@@ -141,4 +141,21 @@ router.get('/allUsers', (req, res) => {
     .catch((err) => console.log(err));
 });
 
+//* View User Details
+router.get('/userDetails/:_id', (req, res) => {
+  //res.render('./users/userDetails');
+
+  Users.registerSchema
+    .findOne({where: {id: req.params._id}})
+    .then((userDetail) => {
+      res.render('./users/userDetails', {
+        userDetail,
+        name: req.user.firstName,
+        loggedId: req.user.id,
+        userRoleId: req.user.userRoleId,
+      });
+    })
+    .catch((err) => console.log(err));
+});
+
 module.exports = router;

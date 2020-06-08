@@ -7,7 +7,7 @@ router.use((req, res) => {
   res.render('./errors/404', {
     layout: './layouts/error',
     title: 'Error 404',
-    message: 'Opps, The Page you are looking for might have been removed or are you missing a directory?',
+    message: 'Oopps.., The Page you are looking for might have been removed or are you missing a directory?',
     author: 'Webmaster',
   });
 });

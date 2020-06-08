@@ -19,9 +19,11 @@
     </tr>
     <% for(user of allUsers) { %>
     <tr>
-      <td><%- i++ %></td>
       <td>
-        <a id="user-details" href="#" title="View Details"> <%- `${user.firstName} ${user.lastName}` %></a>
+        <%- i++ %>
+        <a id="user-details" href="./userDetails/<%- user.id%> " title="View Details">
+          <%- `${user.firstName} ${user.lastName}` %></a
+        >
       </td>
       <td><%- user.city %></td>
       <td><%- user.phone %></td>

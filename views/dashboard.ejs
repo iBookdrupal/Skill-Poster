@@ -8,13 +8,15 @@
 
 <div class="dashboard-inner">
   <% if (user.userRoleId ===2) { %>
-  <button class="btn btn-reverse"><a href="/gigs">All Gigs</a></button>
-  <button class="btn btn-reverse"><a href="/gigs/add">Add Gig</a></button>
+  <button class="btn btn-reverse"><a href="/gigs/<%-user.id %>">My Posts</a></button>
+  <button class="btn btn-reverse"><a href="/gigs">All Posts </a></button>
+  <button class="btn btn-reverse"><a href="/gigs/add">Add Post</a></button>
   <button class="btn btn-reverse"><a href="/users/assignUserRole"> Assign User Roles</a></button>
   <button class="btn btn-reverse"><a href="/users/allUsers"> All Users</a></button>
   <% } else{ %>
+  <button class="btn btn-reverse"><a href="/gigs/<%-user.id %>">My Posts</a></button>
 
-  <button class="btn btn-reverse"><a href="/gigs">All Gigs</a></button>
-  <button class="btn btn-reverse"><a href="/gigs/add">Add Gig</a></button>
+  <button class="btn btn-reverse"><a href="/gigs">All Posts</a></button>
+  <button class="btn btn-reverse"><a href="/gigs/add">Add Post</a></button>
   <% } %>
 </div>

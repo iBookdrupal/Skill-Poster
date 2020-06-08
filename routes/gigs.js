@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../config/database');
 const Gig = require('../models/Gig');
+
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
@@ -12,22 +12,43 @@ router.get('/', (req, res) =>
       res.render('./codegigModule/gigs', {
         codegig,
         name: req.user.firstName,
+        email: req.user.email,
+        loggedUser: req.user.userId,
+        user: req.user,
       });
     })
     .catch((err) => console.log(err))
 );
 
+//* Get post gig list by user logged Id
+router.get('/:_id', (req, res) => {
+  //res.render('./users/userDetails');
+  Gig.findAll({where: {userId: req.params._id}})
+    .then((codegig) => {
+      res.render('./codegigModule/gigs', {
+        codegig,
+        name: req.user.firstName,
+        email: req.user.email,
+        userRoleId: req.user.userRoleId,
+        user: req.user,
+      });
+    })
+    .catch((err) => console.log(err));
+});
+
 //* Display add gig form
 router.get('/add', (req, res) => {
   res.render('./codegigModule/add', {
     name: req.user.firstName,
+    userId: req.user.id,
   });
 });
 
 //* Add a gig
 
 router.post('/add', (req, res) => {
-  let {title, technologies, budget, description} = req.body;
+  let {title, technologies, budget, description, userId} = req.body;
+
   //Validate Fields
   let errors = [];
 
@@ -70,6 +91,7 @@ router.post('/add', (req, res) => {
           technologies,
           budget,
           description,
+          userId,
         });
         return res.redirect('/gigs');
       })

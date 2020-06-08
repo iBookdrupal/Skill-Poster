@@ -1,0 +1,38 @@
+<h3 class="btn btn-reverse"><%- userDetail.firstName %>'s Profile</h3>
+<table class="user-table">
+  <tr>
+    <td>
+      <label><b> First Name: </b></label>
+      <label><b> Last Name: </b></label>
+      <label><b> Gender: </b></label>
+      <label><b> City: </b></label>
+      <label><b> State: </b></label>
+      <label><b> Phone No: </b></label>
+      <label><b> E-mail: </b></label>
+      <!-- -->
+      <% if (loggedId=== userDetail.id && userRoleId === userDetail.userRoleId){ %>
+      <a id="btn-userDetails" class="btn btn-danger" href="#">Edit Profile <i class="fa fa-edit"></i></a>
+      <a id="btn-userDetails" class="btn btn-danger" href="/users/allUsers"
+        ><i class="fa fa-chevron-circle-left"></i> Cancel
+      </a>
+      <% } else{%>
+
+      <a id="btn-userDetails" class="btn btn-danger" href="/dashboard"
+        ><i class="fa fa-chevron-circle-left"></i> Cancel
+      </a>
+
+      <% } %>
+    </td>
+
+    <td id="passport">
+      <span><img src="/img/passport.png" /></span>
+      <label><%= userDetail.firstName %></label>
+      <label><%= userDetail.lastName %></label>
+      <label><%= userDetail.gender %></label>
+      <label><%= userDetail.city %></label>
+      <label><%= userDetail.state %></label>
+      <label><%= userDetail.phone%></label>
+      <label><%= userDetail.email %></label>
+    </td>
+  </tr>
+</table>

@@ -7,23 +7,36 @@
       <i class="fa fa-chevron-circle-left"></i> My Dashboard
     </a>
     <span> Total Gigs: <%- codegig.length %> </span>
+    <button id="btn-userDetails" class="btn btn-reverse"><a href="/gigs">All Posts </a></button>
+    <button class="btn btn-reverse"><a href="/gigs/<%-user.id %>">My Posts</a></button>
   </p>
 
+  <!-- Only Logged in Users -->
+
   <% if (codegig !==0) { %> <% codegig.forEach(gig => { %>
+  <!-- From Here -->
 
   <div class="gig">
     <h3><%- gig.title %></h3>
     <p><%- gig.description %></p>
     <ul>
       <li>Budget: <%- gig.budget %></li>
-      <!--
-      <li><a href="mailto:<%-// gig.contact_mail %> " class="btn btn-reverse">Apply Now</a></li>
-      -->
+
+      <li><a href="mailto:<%- email %> " class="btn btn-reverse">Apply Now</a></li>
     </ul>
     <div class="tech">
-      <small>Technologies Needed: <span><%- gig.technologies %> </span></small>
+      <small
+        >Technologies Needed: <span><%- gig.technologies %> </span> Posted by: <% if (gig.userId === user.id)
+        { %>
+        <span> You</span>
+        <% } else{%>
+
+        <span><%- gig.userId %> </span>
+        <% } %>
+      </small>
     </div>
   </div>
+
   <% }) %> <% } else { %>
   <p>No data Available</p>
   <% } %>

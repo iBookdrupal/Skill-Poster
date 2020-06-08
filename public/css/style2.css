@@ -15,3 +15,13 @@
 #dashboard-align {
   text-align: center;
 }
+
+#btn-userDetails {
+  background-color: #0c7fb4;
+  color: aliceblue;
+}
+
+#passport img {
+  float: right;
+  width: 40%;
+}
